@@ -36,7 +36,7 @@ class SurugayaParser():
     def _parse_html(self, html):
         soup = BeautifulSoup(html, 'lxml')
         items = self._find_items(soup)
-        return [self._parse_item(i) for i in items]
+        return (self._parse_item(i) for i in items)
 
     def _find_items(self, soup):
         return soup.find('body').findAll(class_='item')
