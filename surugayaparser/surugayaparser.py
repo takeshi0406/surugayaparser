@@ -18,11 +18,11 @@ class SurugayaParser():
 
     def _item_generator(self, pages, sleepsec):
         for p in range(1, pages+1):
-            self._sleep_if_firsttime(sleepsec)
+            self._sleep_if_not_firsttime(sleepsec)
             for item in self._parse_from_url(page=p):
                 yield item
 
-    def _sleep_if_firsttime(self, sleepsec):
+    def _sleep_if_not_firsttime(self, sleepsec):
         if self.is_firstrequest:
             self.is_firstrequest = False
         else:
